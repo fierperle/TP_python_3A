@@ -41,3 +41,49 @@ def inputDate():
         print(f"The date {LstParam[0]}/{LstParam[1]}/{LstParam[2]} is valide")
     else:
         print("Invalide Date")
+
+
+
+def calcImpot():
+    incomes = int(input("Input your incomes : "))
+
+    total = 0
+    partitions = [[160336,0.45],[74545,0.41],[26070,0.30],[10225,0.11]]
+    for splits in partitions:
+        if incomes > splits[0]:
+            total += (incomes - splits[0] - 1) * splits[1]
+        incomes = splits[0]
+
+    print(total)
+
+
+
+#format : liste de ligne
+def matrixMultiplication(matA,matB):
+    if len(matA[0]) == len(matB):
+        #taille de la matrice de sortie
+        height = len(matA)
+        width = len(matB[0])
+        #pour les calcues
+        calcSize = len(matB)
+
+        finalMatrix = []
+        for i in range(height):
+            lstLigne =[]
+            for j in range(width):
+                a_ij = 0
+                for k in range (calcSize):
+                    a_ij += matA[i][k] * matB[k][j]
+
+                lstLigne.append(a_ij)
+            finalMatrix.append(lstLigne)
+        return finalMatrix
+
+def printMatrix(matrix):
+    print("Matrix : ")
+    for line in matrix:
+        strLine = "|"
+        for val in line:
+            strLine += str(val)+" "
+        strLine = strLine[:-1] + "|"
+        print(strLine)
