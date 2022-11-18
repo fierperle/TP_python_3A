@@ -32,7 +32,7 @@ def inputDate():
                     LstParam[index] = int(val)
                     okParam += 1
                 except:
-                    print("input can only be numbers")
+                    print(LstParam[index],"is not a numbers")
                     break
             if okParam == 3:
                 isok = True
