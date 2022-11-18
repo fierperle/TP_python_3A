@@ -1,3 +1,8 @@
+""" TP1 de dévelopement en python du 18/11/2022 """
+# la partie 1 n'est qu'un préambule
+"""
+partie 2 : la validité des dates
+"""
 # fonction pour l'année bisextile
 def is_leap_year(year: int):
     return ((year % 100 != 0) and (year %4 ==0)) or (year % 400 == 0)
@@ -42,8 +47,9 @@ def inputDate():
     else:
         print("Invalide Date")
 
-
-
+"""
+partie 3 : les impots
+"""
 def calcImpot():
     incomes = int(input("Input your incomes : "))
 
@@ -56,8 +62,9 @@ def calcImpot():
 
     print(total)
 
-
-
+"""
+partie 4 : produit de matrices
+"""
 #format : liste de ligne
 def matrixMultiplication(matA,matB):
     if len(matA[0]) == len(matB):
@@ -87,3 +94,27 @@ def printMatrix(matrix):
             strLine += str(val)+" "
         strLine = strLine[:-1] + "|"
         print(strLine)
+
+"""
+partie 5 : les Tours de Hanoï
+"""
+#les tours sont des listes (le dernier est en haut)
+def move(towerFrom, towerTo):
+    print("move")
+    print("  origine",towerFrom,towerTo)
+    towerTo.append(towerFrom[-1])
+    towerFrom.pop()
+    print("  end",towerFrom,towerTo)
+
+#targeted tower : 2
+def solveHanoi(tower1,tower2,tower3):
+    pass
+    if len(tower1) > 1:
+        tower1,tower2,tower3 = solveHanoi(tower1[:-1],tower3,tower2)
+    move(tower1,tower2)
+    """
+    tower1,tower2,tower3 = solveHanoi(tower1,tower3,tower2)
+    """
+
+    return(tower1,tower2,tower3)
+    # /!\ does not work /!\

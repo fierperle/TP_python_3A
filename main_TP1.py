@@ -1,7 +1,7 @@
 import functions_TP1 as TP1
 
 """selection de l"exercice"""
-exercice = 3
+exercice = 4
 
 if exercice == 1:
     print("--- Exercice 2 : Calendrier ---")
@@ -20,3 +20,8 @@ elif exercice == 3:
 
     C = TP1.matrixMultiplication(A,B)
     TP1.printMatrix(C)
+
+
+elif exercice == 4:
+    #W.I.P.
+    print(TP1.solveHanoi(["1","2","3","4"],[],[]))
